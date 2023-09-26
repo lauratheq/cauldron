@@ -104,7 +104,6 @@ class DB {
 	public function query( $query ) {
 		$this->query = Hooks::apply( 'query', $query );
 		$this->resource = mysqli_query( $this->database, $query );
-		$this->num_rows = $this->resource->num_rows;
 	}
 
 	/**
@@ -116,16 +115,15 @@ class DB {
 	 * 
 	 * @return	array the results of the query
 	 */
-	public static function get_results( $query ) {
-		$db = self::get_instance();
-		
-		$db->query( $query );
-		if ( $db->num_rows >= 1 ) {
-			while ( $row = mysqli_fetch_assoc( $db->resource ) ) {
-				$db->results[] = $row;
+	public function get_results( $query ) {
+		$this->query( $query );
+		$this->num_rows = $this->resource->num_rows;
+		if ( $this->num_rows >= 1 ) {
+			while ( $row = mysqli_fetch_assoc( $this->resource ) ) {
+				$this->results[] = $row;
 			}
 		}
 
-		return $db->results;
+		return $this->results;
 	}
 }

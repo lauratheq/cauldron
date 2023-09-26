@@ -8,6 +8,4 @@ function ppp( $pee ) {
 
 require_once 'index.php';
 
-
-$results = DB::get_results( 'SELECT * FROM options' );
-ppp($results);
+Options::remove( 'foobart' );
