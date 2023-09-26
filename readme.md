@@ -4,11 +4,11 @@ Cauldron is an ultra lightweight plugin system. The core features are a WordPres
 
 ## API Docs
 
-* (./docs/Hooks.md)[Hooks]
-* (./docs/Database.md)[Database]
-* (./docs/Options.md)[Options]
-* (./docs/Plugins.md)[Plugins]
-* (./docs/Users.md)[Users]
+* [Hooks](./docs/Hooks.md)
+* [Database](./docs/Database.md)
+* [Options](./docs/Options.md)
+* [Plugins](./docs/Plugins.md)
+* [Users](./docs/Users.md)
 
 ## Developing a plugin
 
