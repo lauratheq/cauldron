@@ -1,6 +1,6 @@
 <?php
 
-function ppp( $pee ) {
+function _p( $pee ) {
 	print '<pre>';
 	print_r( $pee );
 	print '</pre>';
