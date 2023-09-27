@@ -14,6 +14,7 @@ if ( DEBUG_MODE === true ) {
 }
 
 // Load system required files
+require_once ABSPATH . '/src/Hook.php';
 require_once ABSPATH . '/src/Hooks.php';
 require_once ABSPATH . '/src/Helpers.php';
 require_once ABSPATH . '/src/DB.php';

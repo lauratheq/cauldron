@@ -52,11 +52,9 @@ class Hooks {
 	public static function add( $name, $callback, $priority = 10 ) {
 		$instance = self::get_instance();
 
-		$hook = array(
-			'name' => $name,
-			'callback' => $callback
-		);
-		$hook_id = md5( serialize( $hook ) );
+		$hook_id = md5( serialize( [ $name, $callback, $priority ] ) );
+		$hook = new Hook( $hook_id, $name, $callback, $priority );
+
 		$instance->hooks[ $priority . '_' . $hook_id ] = $hook;
 		ksort( $instance->hooks, SORT_NATURAL );
 	}
@@ -76,7 +74,7 @@ class Hooks {
 		$instance = self::get_instance();
 
 		foreach ( $instance->hooks as $hook_id => $hook ) {
-			if ( $hook['name'] == $name && $hook['callback'] == $callback ) {
+			if ( $hook->name == $name && $hook->callback == $callback ) {
 				unset( $instance->hooks[ $hook_id ] );
 				break;
 			}
@@ -97,9 +95,9 @@ class Hooks {
 		$instance = self::get_instance();
 
 		foreach ( $instance->hooks as $hook ) {
-			if ( $hook['name'] == $name ) {
-				if ( is_callable( $hook['callback'] ) ) {
-					call_user_func( $hook['callback'] );
+			if ( $hook->name == $name ) {
+				if ( is_callable( $hook->callback ) ) {
+					call_user_func( $hook->callback );
 					break;
 				}
 			}
@@ -123,9 +121,9 @@ class Hooks {
 
 		$rtn_value = $default;
 		foreach ( $instance->hooks as $hook ) {
-			if ( $hook['name'] == $name ) {
-				if ( is_callable( $hook['callback'] ) ) {
-					$rtn_value = call_user_func( $hook['callback'], $rtn_value, $arguments );
+			if ( $hook->name == $name ) {
+				if ( is_callable( $hook->callback ) ) {
+					$rtn_value = call_user_func( $hook->callback, $rtn_value, $arguments );
 				}
 			}
 		}
