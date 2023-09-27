@@ -13,6 +13,9 @@ if ( DEBUG_MODE === true ) {
 	error_reporting( E_ALL );
 }
 
+// helpers
+require_once ABSPATH . '/src/Helpers.php';
+
 // Load the hook system
 require_once ABSPATH . '/src/Hook.php';
 require_once ABSPATH . '/src/Hooks.php';
@@ -28,8 +31,6 @@ Plugins::init();
 // early hook for the plugins
 Hooks::exec( 'plugins_loaded' );
 
-// helpers
-require_once ABSPATH . '/src/Helpers.php';
 
 // System is loaded, engage
 Hooks::exec( 'system_loaded' );
