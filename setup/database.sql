@@ -6,15 +6,6 @@ SET sql_mode = 'NO_AUTO_VALUE_ON_ZERO';
 
 SET NAMES utf8mb4;
 
-DROP TABLE IF EXISTS `options`;
-CREATE TABLE `options` (
-  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
-  `name` text NOT NULL,
-  `value` text NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
-
 DROP TABLE IF EXISTS `plugins`;
 CREATE TABLE `plugins` (
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,

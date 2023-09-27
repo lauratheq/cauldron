@@ -29,10 +29,5 @@ Hooks::exec( 'plugins_loaded' );
 // helpers
 require_once ABSPATH . '/src/Helpers.php';
 
-// options
-require_once ABSPATH . '/src/Options.php';
-
-// placeholder for the template
-
 // System is loaded, engage
 Hooks::exec( 'system_loaded' );
