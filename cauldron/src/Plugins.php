@@ -29,5 +29,6 @@ class Plugins {
 	public static function init() {
 		$plugin_system = self::get_instance();
 
+		ppp($plugin_system);
 	}
 }

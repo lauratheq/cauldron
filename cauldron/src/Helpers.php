@@ -1,5 +1,10 @@
 <?php
 
+function ppp( $pee ) {
+	print '<pre>';
+	print_r( $pee );
+	print '</pre>';
+}
 class Helpers {
 
 	/**
