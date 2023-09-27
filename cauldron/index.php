@@ -13,12 +13,26 @@ if ( DEBUG_MODE === true ) {
 	error_reporting( E_ALL );
 }
 
-// Load system required files
+// Load the hook system
 require_once ABSPATH . '/src/Hook.php';
 require_once ABSPATH . '/src/Hooks.php';
-require_once ABSPATH . '/src/Helpers.php';
+
+// database
 require_once ABSPATH . '/src/DB.php';
+
+// load the plugin system
+
+
+// System is loaded, engage
+Hooks::exec( 'plugins_loaded' );
+
+// helpers
+require_once ABSPATH . '/src/Helpers.php';
+
+// options
 require_once ABSPATH . '/src/Options.php';
+
+// placeholder for the template
 
 // System is loaded, engage
 Hooks::exec( 'system_loaded' );
