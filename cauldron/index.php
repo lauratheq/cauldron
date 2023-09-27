@@ -21,9 +21,11 @@ require_once ABSPATH . '/src/Hooks.php';
 require_once ABSPATH . '/src/DB.php';
 
 // load the plugin system
+require_once ABSPATH . '/src/Plugin.php';
+require_once ABSPATH . '/src/Plugins.php';
+Plugins::init();
 
-
-// System is loaded, engage
+// early hook for the plugins
 Hooks::exec( 'plugins_loaded' );
 
 // helpers
