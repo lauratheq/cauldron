@@ -13,7 +13,7 @@ Cauldron is an ultra lightweight plugin system. The core features are a WordPres
 ## Installation
 
 1. Head to config.php and insert your user credentials.
-1. Insert the database.sql into your database
+1. Insert the ./setup/database.sql into your database
 
 ## Developing a plugin
 
